@@ -7,11 +7,16 @@ use Drupal\Core\Extension\ModuleUninstallValidatorInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslationInterface;
 
+/**
+ * Prevents uninstalling modules with bundle plugins in case of found data.
+ */
 class BundlePluginUninstallValidator implements ModuleUninstallValidatorInterface {
 
   use StringTranslationTrait;
 
   /**
+   * The entity type manager.
+   *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
@@ -20,7 +25,7 @@ class BundlePluginUninstallValidator implements ModuleUninstallValidatorInterfac
    * Constructs the object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   The entity manager.
+   *   The entity type manager.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $string_translation
    *   The string translation service.
    */
