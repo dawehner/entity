@@ -10,7 +10,7 @@ services:
     arguments: ['@entity_type.manager', '@entity_bundle.listener', '@field_storage_definition.listener', '@field_definition.listener']
 
   entity.bundle_plugin.uninstall_validator:
-    class: \Drupal\entity\BundlePluginUninstallValidator
+    class: \Drupal\entity\BundlePlugin\BundlePluginUninstallValidator
     tags:
       - { name: module_install.uninstall_validator }
     arguments: ['@entity_type.manager', '@string_translation']

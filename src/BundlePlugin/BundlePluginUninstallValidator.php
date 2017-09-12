@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\entity;
+namespace Drupal\entity\BundlePlugin;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleUninstallValidatorInterface;
