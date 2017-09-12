@@ -52,11 +52,11 @@ class BundlePluginUninstallValidator implements ModuleUninstallValidatorInterfac
 
       if (!empty($bundles_filtered_by_module)) {
         $bundles_with_content = array_filter($bundles_filtered_by_module, function ($bundle_info, $bundle_id) use ($entity_type) {
-          $count = $this->entityTypeManager->getStorage($entity_type->id())->getQuery()
+          $result = $this->entityTypeManager->getStorage($entity_type->id())->getQuery()
             ->condition($entity_type->getKey('bundle'), $bundle_id)
-            ->count()
+            ->range(0, 1)
             ->execute();
-          return $count > 0;
+          return !empty($result);
         }, ARRAY_FILTER_USE_BOTH);
   
         foreach ($bundles_with_content as $bundle) {
